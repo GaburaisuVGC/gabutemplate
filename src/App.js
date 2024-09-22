@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,7 +10,7 @@ import NavbarDocs from "./pages/docs/NavbarDocs";
 import NavLinksDocs from "./pages/docs/NavLinksDocs";
 import DocumentPage from "./pages/DocumentPage";
 import DocsIntro from './pages/docs/DocsIntro';
-import "./App.css"; // Assurez-vous d'importer le fichier CSS
+import "./App.css";
 
 function App() {
   return (

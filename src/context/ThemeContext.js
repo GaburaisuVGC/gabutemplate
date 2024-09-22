@@ -1,4 +1,3 @@
-// ThemeContext.js
 import { createContext, useState, useMemo, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 

@@ -1,9 +1,8 @@
-// src/pages/docs/DocsIntro.js
 import React from 'react';
 import { Grid2, Box, Typography, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
-import DescriptionIcon from '@mui/icons-material/Description'; // Exemple d'icône, ajustez selon vos besoins
+import DescriptionIcon from '@mui/icons-material/Description';
 
 const documentationLinks = [
   { title: 'custom-button', path: '/docs/custom-button', icon: <DescriptionIcon /> },
@@ -13,7 +12,6 @@ const documentationLinks = [
   { title: 'full-width-content', path: '/docs/full-width-content', icon: <DescriptionIcon /> },
   { title: 'navbar', path: '/docs/navbar', icon: <DescriptionIcon /> },
   { title: 'nav-links', path: '/docs/nav-links', icon: <DescriptionIcon /> },
-  // Ajoutez d'autres liens de documentation ici
 ];
 
 const DocsIntro = () => {
@@ -31,7 +29,7 @@ const DocsIntro = () => {
         {t('documentation_intro_description')}
       </Typography>
 
-      {/* Grille de Pilules */}
+      {/* Grille de liens */}
       <Grid2 container spacing={2} sx={{ marginTop: 4 }}>
         {documentationLinks.map((link, index) => (
           <Grid2 item xs={12} sm={6} md={4} key={index}>

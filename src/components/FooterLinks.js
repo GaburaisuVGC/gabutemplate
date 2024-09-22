@@ -1,4 +1,3 @@
-// FooterLinks.js
 import React from 'react';
 import { Typography, Link, Box } from '@mui/material';
 

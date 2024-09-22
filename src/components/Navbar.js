@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ColorModeContext } from "../context/ThemeContext";
@@ -28,13 +27,10 @@ function Navbar({ showLanguageSelector = true, showThemeSwitch = true }) {
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
 
-  // État pour la hauteur de la navbar
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // État pour le menu burger
   const [anchorElNav, setAnchorElNav] = useState(null);
 
-  // État pour le menu de langue
   const [anchorElLang, setAnchorElLang] = useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -55,7 +51,6 @@ function Navbar({ showLanguageSelector = true, showThemeSwitch = true }) {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    // Changer le localStorage pour conserver la langue
     localStorage.setItem("language", lng);
     handleCloseLangMenu();
   };

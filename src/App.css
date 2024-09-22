@@ -1,4 +1,4 @@
-/* App.css */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -9,7 +9,6 @@
   flex: 1;
 }
 
-/* Footer.css (ou dans App.css si vous préférez) */
 footer ul {
   list-style-type: none;
   padding: 0;

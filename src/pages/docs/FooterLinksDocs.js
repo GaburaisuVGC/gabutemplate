@@ -1,11 +1,9 @@
-// docs/FooterLinksDocs.js
 import React from 'react';
 import FooterLinks from '../../components/FooterLinks';
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 const FooterLinksDocs = () => {
-  // Exemple de liens
   const exampleLinks = [
     { text: 'Accueil', href: '/' },
     { text: 'Fonctionnalités', href: '/features' },

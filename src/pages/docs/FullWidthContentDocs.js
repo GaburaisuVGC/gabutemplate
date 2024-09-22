@@ -1,4 +1,3 @@
-// docs/FullWidthContentDocs.js
 import React from 'react';
 import FullWidthContent from '../../components/FullWidthContent';
 import { Box, Typography, Paper } from '@mui/material';
@@ -71,7 +70,6 @@ const FullWidthContentDocs = () => {
               <TableCell>Texte du bouton d'appel à l'action.</TableCell>
               <TableCell>null</TableCell>
             </TableRow>
-            {/* Ajoutez d'autres props selon besoin */}
           </TableBody>
         </Table>
       </TableContainer>
@@ -87,7 +85,7 @@ const FullWidthContentDocs = () => {
           image="https://via.placeholder.com/300"
           imagePosition="right"
           ctaText="Contactez-nous"
-          ctaLink="/contact"
+          ctaLink="#"
           focusWordKeys={['Services']}
           focusColor="secondary.main"
           backgroundImage="https://via.placeholder.com/1200x400"

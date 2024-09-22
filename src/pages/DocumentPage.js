@@ -1,4 +1,3 @@
-// ./src/pages/DocumentPage.js
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import {
@@ -14,7 +13,7 @@ import {
 import DescriptionIcon from '@mui/icons-material/Description';
 import { useTranslation } from 'react-i18next';
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar'; // Importer la Navbar
+import Navbar from '../components/Navbar';
 
 const drawerWidth = 240;
 
@@ -49,15 +48,14 @@ function DocumentPage() {
             width: drawerWidth,
             boxSizing: 'border-box',
             position: 'fixed',
-            top: theme.mixins.toolbar.minHeight, // Positionnée sous la Navbar
-            height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`, // Hauteur ajustée
-            paddingTop: theme.spacing(2), // Plus de padding en haut
-            zIndex: theme.zIndex.appBar - 1, // z-index inférieur à la Navbar
-            backgroundColor: theme.palette.background.default, // Assure que le fond correspond
+            top: theme.mixins.toolbar.minHeight,
+            height: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
+            paddingTop: theme.spacing(2),
+            zIndex: theme.zIndex.appBar - 1,
+            backgroundColor: theme.palette.background.default,
           },
         }}
       >
-        {/* Supprimer <Toolbar /> pour éviter l'espace blanc */}
         <Box sx={{ paddingTop: theme.spacing(2) }}>
           <List>
             {docs.map((doc) => (
@@ -69,16 +67,16 @@ function DocumentPage() {
                 selected={location.pathname === `/docs/${doc.path}`}
                 sx={{
                   '&.Mui-selected': {
-                    backgroundColor: 'transparent', // Supprimer le fond sélectionné
+                    backgroundColor: 'transparent',
                   },
                   '&:hover .MuiListItemText-primary': {
-                    textDecoration: 'underline', // Souligner au survol
+                    textDecoration: 'underline', 
                   },
                   '& .MuiListItemText-primary': {
-                    color: theme.palette.mode === 'dark' ? 'common.white' : 'grey.700', // Couleur conditionnelle
+                    color: theme.palette.mode === 'dark' ? 'common.white' : 'grey.700',
                   },
                   '& .MuiListItemIcon-root': {
-                    color: theme.palette.mode === 'dark' ? 'common.white' : 'grey.700', // Couleur des icônes
+                    color: theme.palette.mode === 'dark' ? 'common.white' : 'grey.700',
                   },
                 }}
               >
@@ -99,7 +97,7 @@ function DocumentPage() {
           flexGrow: 1,
           bgcolor: 'background.default',
           p: 1,
-          marginLeft: { sm: `${drawerWidth}px` }, // Espace pour la Drawer sur sm et plus
+          marginLeft: { sm: `${drawerWidth}px` },
         }}
       >
 

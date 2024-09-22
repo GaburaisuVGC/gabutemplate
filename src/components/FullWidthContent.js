@@ -1,64 +1,63 @@
-// components/FullWidthContent.js
-import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { Box, Typography, Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 function FullWidthContent(props) {
-    const {
-      title,
-      content,
-      image,
-      imagePosition = 'left', // 'left' ou 'right'
-      backgroundImage = null,
-      ctaText = null,
-      ctaLink = '#',
-      ctaStyles = {},
-      onCtaClick = null,
-      sx = {},
-      contentAlignment = 'left',
-      ctaAlignment = null,
-      titleColor = 'text.primary',
-      contentColor = 'text.primary',
-      focusWordKeys = [], // Nouveau nom pour indiquer qu'il s'agit de clés de traduction
-      focusColor = 'primary.main',
-      marginTopNonMobile = 0, // Nouvelle prop pour la marge supérieure non mobile
-    } = props;
+  const {
+    title,
+    content,
+    image,
+    imagePosition = "left",
+    backgroundImage = null,
+    ctaText = null,
+    ctaLink = "#",
+    ctaStyles = {},
+    onCtaClick = null,
+    sx = {},
+    contentAlignment = "left",
+    ctaAlignment = null,
+    titleColor = "text.primary",
+    contentColor = "text.primary",
+    focusWordKeys = [],
+    focusColor = "primary.main",
+    marginTopNonMobile = 0,
+  } = props;
 
   const { t } = useTranslation();
 
-    // Traduire le titre et le contenu si ce ne sont pas déjà des traductions
-    const translatedTitle = typeof title === 'string' ? t(title) : title;
-    const translatedContent = typeof content === 'string' ? t(content) : content;
+  const translatedTitle = typeof title === "string" ? t(title) : title;
+  const translatedContent = typeof content === "string" ? t(content) : content;
 
-// Traduire les focusWordKeys
-const focusWords = focusWordKeys.map((key) => t(key));
+  const focusWords = focusWordKeys.map((key) => t(key));
 
   // Styles par défaut pour le CTA
   const defaultCtaStyles = {
-    backgroundColor: 'primary.main',
-    color: 'primary.contrastText',
+    backgroundColor: "primary.main",
+    color: "primary.contrastText",
     borderRadius: 2,
-    border: 'none',
-    '&:hover': {
-      backgroundColor: 'primary.dark',
+    border: "none",
+    "&:hover": {
+      backgroundColor: "primary.dark",
     },
     ...ctaStyles,
   };
 
   function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
   function highlightWords(text, focusWords, focusColor) {
     if (!focusWords || focusWords.length === 0) return text;
-  
+
     // Échapper les caractères spéciaux dans les focusWords
     const escapedWords = focusWords.map((word) => escapeRegExp(word));
-    const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
+    const regex = new RegExp(`(${escapedWords.join("|")})`, "gi");
     const parts = text.split(regex);
-  
+
     return parts.map((part, index) => {
-      if (focusWords.some((word) => word.toLowerCase() === part.toLowerCase())) {
+      if (
+        focusWords.some((word) => word.toLowerCase() === part.toLowerCase())
+      ) {
         return (
           <Box key={index} component="span" sx={{ color: focusColor }}>
             {part}
@@ -69,78 +68,79 @@ const focusWords = focusWordKeys.map((key) => t(key));
       }
     });
   }
-  
 
-    return (
+  return (
+    <Box
+      sx={{
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        p: 4,
+        mt: { md: marginTopNonMobile }, // Application de la marge-top uniquement sur md et plus
+        display: "flex",
+        flexDirection:
+          imagePosition === "left"
+            ? { xs: "column", md: "row" }
+            : { xs: "column", md: "row-reverse" },
+        alignItems: "center",
+        ...sx,
+      }}
+    >
+      {/* Image */}
+      {image && (
+        <Box
+          component="img"
+          src={image}
+          alt={title}
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            height: "auto",
+          }}
+        />
+      )}
+
+      {/* Contenu textuel */}
       <Box
         sx={{
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          p: 4,
-          mt: { md: marginTopNonMobile }, // Application de la marge-top uniquement sur md et plus
-          display: 'flex',
-          flexDirection:
-            imagePosition === 'left' ? { xs: 'column', md: 'row' } : { xs: 'column', md: 'row-reverse' },
-          alignItems: 'center',
-          ...sx,
+          flex: 1,
+          textAlign: contentAlignment,
+          color: "text.primary",
+          p: 2,
+          backgroundColor: "transparent",
         }}
       >
-        {/* Image */}
-        {image && (
+        {/* Titre */}
+        <Typography variant="h3" gutterBottom sx={{ color: titleColor }}>
+          {highlightWords(translatedTitle, focusWords, focusColor)}
+        </Typography>
+
+        {/* Contenu */}
+        <Typography variant="body1" gutterBottom sx={{ color: contentColor }}>
+          {translatedContent}
+        </Typography>
+
+        {/* Bouton CTA */}
+        {ctaText && (
           <Box
-            component="img"
-            src={image}
-            alt={title}
             sx={{
-              width: { xs: '100%', md: '50%' },
-              height: 'auto',
+              display: "flex",
+              justifyContent: ctaAlignment || contentAlignment,
+              mt: 2,
             }}
-          />
-        )}
-
-        {/* Contenu textuel */}
-        <Box
-          sx={{
-            flex: 1,
-            textAlign: contentAlignment,
-            color: 'text.primary',
-            p: 2,
-            backgroundColor: 'transparent',
-          }}
-        >
-          {/* Titre avec mots mis en évidence */}
-          <Typography variant="h3" gutterBottom sx={{ color: titleColor }}>
-            {highlightWords(translatedTitle, focusWords, focusColor)}
-          </Typography>
-
-          {/* Contenu avec couleur personnalisée */}
-          <Typography variant="body1" gutterBottom sx={{ color: contentColor }}>
-            {translatedContent}
-          </Typography>
-
-          {/* Bouton CTA */}
-          {ctaText && (
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: ctaAlignment || contentAlignment,
-                mt: 2,
-              }}
+          >
+            <Button
+              variant="contained"
+              href={ctaLink}
+              onClick={onCtaClick}
+              sx={defaultCtaStyles}
             >
-              <Button
-                variant="contained"
-                href={ctaLink}
-                onClick={onCtaClick}
-                sx={defaultCtaStyles}
-              >
-                {typeof ctaText === 'string' ? t(ctaText) : ctaText}
-              </Button>
-            </Box>
-          )}
-        </Box>
+              {typeof ctaText === "string" ? t(ctaText) : ctaText}
+            </Button>
+          </Box>
+        )}
       </Box>
-    );
+    </Box>
+  );
 }
 
 export default FullWidthContent;

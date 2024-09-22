@@ -1,4 +1,3 @@
-// components/CustomContent.js
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -24,10 +23,10 @@ function CustomContent(props) {
     ctaStyles = {},
     onCtaClick = null,
     listItems = [],
-    listType = 'bullet', // 'bullet' ou 'checkbox'
+    listType = 'bullet',
     bulletIcon = <Circle sx={{ fontSize: '0.5rem' }} />,
     contentAlignment = 'inherit',
-    titleMarginTop = 1, // Nouvelle prop pour la marge supérieure du titre
+    titleMarginTop = 1,
   } = props;
 
   const { t } = useTranslation();
@@ -121,7 +120,7 @@ function CustomContent(props) {
         backgroundColor: 'background.paper',
         display: 'flex',
         flexDirection: flexDirection,
-        alignItems: 'stretch', // Assure que les enfants s'étendent sur toute la hauteur
+        alignItems: 'stretch',
         ...sx,
       }}
     >

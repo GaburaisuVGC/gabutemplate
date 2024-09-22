@@ -1,4 +1,3 @@
-// docs/CustomContentDocs.js
 import React from 'react';
 import CustomContent from '../../components/CustomContent';
 import {
@@ -278,7 +277,7 @@ const CustomContentDocs = () => {
           animationDirection="left"
           animationDuration={1}
           ctaText="Contactez-nous"
-          ctaLink="/contact"
+          ctaLink="#"
           ctaPosition="right"
           ctaStyles={{
             backgroundColor: 'secondary.main',
@@ -329,7 +328,7 @@ const CustomContentDocs = () => {
           animationDirection="up"
           animationDuration={0.8}
           ctaText="Lire la Suite"
-          ctaLink="/about"
+          ctaLink="#"
         />
       </Box>
 

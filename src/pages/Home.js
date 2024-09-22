@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import { Container, Box } from '@mui/material';
 import Navbar from '../components/Navbar';
@@ -35,10 +34,10 @@ function Home() {
           marginTopNonMobile={20}
         />
 
-        {/* Présentation des fonctionnalités */}
+        {/* Fonctionnalités */}
         <Box my={24}>
           <Container maxWidth="md">
-            {/* Fonctionnalité : Boutons CTA */}
+            {/* Boutons CTA */}
             <Box my={12}>
               <CustomContent
                 title="feature_cta_title"
@@ -54,7 +53,7 @@ function Home() {
               />
             </Box>
 
-            {/* Fonctionnalité : Images */}
+            {/* Images */}
             <Box my={12}>
               <CustomContent
                 title="feature_images_title"
@@ -70,7 +69,7 @@ function Home() {
               />
             </Box>
 
-            {/* Fonctionnalité : Listes à puces */}
+            {/* Listes à puces */}
             <Box my={12}>
               <CustomContent
                 title="feature_bullets_title"
@@ -86,7 +85,7 @@ function Home() {
               />
             </Box>
 
-            {/* Fonctionnalité : Cases à cocher */}
+            {/* Cases à cocher */}
             <Box my={12}>
               <CustomContent
                 title="feature_checkboxes_title"
@@ -106,7 +105,7 @@ function Home() {
               />
             </Box>
 
-            {/* Fonctionnalité : Animations */}
+            {/* Animations */}
             <Box my={12}>
               <CustomContent
                 title="feature_animations_title"

@@ -1,4 +1,3 @@
-// Footer.js
 import React from 'react';
 import { Typography, Container, Box, Grid2 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -24,13 +23,12 @@ function Footer() {
       sx={{
         backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.primary,
-        pt: 4, // Padding top
-        pb: 2, // Padding bottom
+        pt: 4,
+        pb: 2,
       }}
     >
       <Container maxWidth="lg">
         <Grid2 container spacing={4} justifyContent="center">
-          {/* Colonne 1 */}
           <Grid2 xs={12} md={4}>
             <Typography variant="h6" gutterBottom>
               {t('company')}
@@ -40,25 +38,21 @@ function Footer() {
             </Typography>
           </Grid2>
 
-          {/* Colonne 2 */}
           <Grid2 xs={12} md={4}>
             <FooterLinks title={t('useful_links')} links={usefulLinks} />
           </Grid2>
 
-          {/* Colonne 3 */}
           <Grid2 xs={12} md={4}>
             <FooterLinks title={t('follow_us')} links={socialLinks} />
           </Grid2>
         </Grid2>
 
-        {/* Note de copyright */}
         <Typography
           variant="body2"
           color="textSecondary"
           align="center"
           sx={{ mt: 4 }}
         >
-          {'© '}
           {t('admin')} {new Date().getFullYear()}
           {'.'}
         </Typography>

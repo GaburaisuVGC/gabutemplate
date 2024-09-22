@@ -1,4 +1,3 @@
-// docs/FooterDocs.js
 import React from 'react';
 import Footer from '../../components/Footer';
 import { Box, Typography } from '@mui/material';

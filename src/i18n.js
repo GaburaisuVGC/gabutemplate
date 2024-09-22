@@ -1,14 +1,12 @@
-// i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import fr from './locales/fr.json';
 import en from './locales/en.json';
 
-// Fonction pour obtenir la langue initiale
 const getInitialLanguage = () => {
   const savedLanguage = localStorage.getItem('language');
-  return savedLanguage || 'fr'; // 'fr' est la langue par défaut
+  return savedLanguage || 'fr';
 };
 
 i18n
